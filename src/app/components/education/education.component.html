@@ -1,0 +1,23 @@
+<div class="intro content edu-bg" id="edu">
+  <h1 class="heading"><span>Education</span></h1>
+  <p class="edu-subtitle">Academic timeline and learning foundation</p>
+  <div class="page-divider edu-divider"></div>
+
+  <div class="edu-timeline">
+    <div class="edu-timeline-line"></div>
+
+    <div class="edu-card" *ngFor="let education of educationList">
+      <div class="edu-node">
+        <i class="fa" [ngClass]="education.icon"></i>
+      </div>
+
+      <div class="edu-card-body">
+        <p class="edu-year-pill">{{ education.year }}</p>
+        <h3 class="edu-course">{{ education.course }}</h3>
+        <p class="edu-college">{{ education.college }}</p>
+        <p class="edu-focus">{{ education.focus }}</p>
+        <div class="edu-card-glow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</div>

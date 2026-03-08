@@ -1,0 +1,13 @@
+#pc-menu a {
+  position: relative;
+}
+
+#pc-menu a span {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#pc-menu a:hover span {
+  color: #05fed0;
+  transform: translateX(6px);
+}

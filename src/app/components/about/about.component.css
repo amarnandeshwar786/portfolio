@@ -1,0 +1,120 @@
+.about-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.about-card {
+  border: 1px solid rgba(173, 205, 231, 0.28);
+  border-radius: 12px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(50, 202, 184, 0.14), transparent 42%),
+    linear-gradient(160deg, rgba(12, 35, 59, 0.72), rgba(17, 44, 72, 0.8));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.about-identity {
+  text-align: center;
+}
+
+.about-avatar {
+  width: 122px;
+  height: 122px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(236, 245, 255, 0.82);
+  margin-bottom: 10px;
+}
+
+.about-identity h3 {
+  margin: 0 0 4px;
+  text-transform: none;
+  font-size: var(--fs-xl);
+}
+
+.about-role {
+  margin: 0;
+  color: var(--accent);
+  font-size: var(--fs-base);
+  letter-spacing: 0.2px;
+}
+
+.about-meta {
+  margin: 8px 0 14px;
+  color: rgba(222, 230, 244, 0.9);
+  font-size: var(--fs-sm);
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.about-tags span {
+  border: 1px solid rgba(173, 205, 231, 0.32);
+  background: rgba(9, 25, 46, 0.44);
+  border-radius: 999px;
+  padding: 4px 9px;
+  color: #ddf2ff;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2px;
+}
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.fact {
+  border: 1px solid rgba(173, 205, 231, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(12, 30, 54, 0.36);
+}
+
+.fact label {
+  display: block;
+  margin: 0 0 4px;
+  color: rgba(210, 231, 250, 0.8);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.fact span {
+  display: block;
+  color: #f3f8ff;
+  font-size: var(--fs-base);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.about-summary h3 {
+  margin: 0 0 8px;
+  text-transform: none;
+  font-size: var(--fs-xl);
+}
+
+.about-summary p {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+}

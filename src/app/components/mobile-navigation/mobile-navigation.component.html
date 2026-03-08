@@ -1,0 +1,14 @@
+<div class="mobile-navigation col-sm-3 col-xs-3">
+  <div class="circle hidden-lg hidden-md" (click)="toggleMenu()"><i>Menu</i></div>
+  <div class="mobile-menu" *ngIf="isOpen" style="display: block">
+    <div class="mobile-menu-gesture"></div>
+    <div class="mobile-nav" data-section="home" (click)="navigate($event, 'home')"><i class="fa fa-home"></i><a href="#home"><span>HOME</span></a></div>
+    <div class="mobile-nav" data-section="about" (click)="navigate($event, 'about')"><i class="fa fa-address-card"></i><a href="#about"><span>ABOUT</span></a></div>
+    <div class="mobile-nav" data-section="exp" (click)="navigate($event, 'exp')"><i class="fa fa-briefcase"></i><a href="#exp"><span>EXPERIENCE</span></a></div>
+    <div class="mobile-nav" data-section="projects" (click)="navigate($event, 'projects')"><i class="fa fa-folder-open"></i><a href="#projects"><span>PROJECTS</span></a></div>
+    <div class="mobile-nav" data-section="skills" (click)="navigate($event, 'skills')"><i class="fa fa-laptop"></i><a href="#skills"><span>SKILLS</span></a></div>
+    <div class="mobile-nav" data-section="edu" (click)="navigate($event, 'edu')"><i class="fa fa-graduation-cap"></i><a href="#edu"><span>EDUCATION</span></a></div>
+    <div class="mobile-nav" data-section="con" (click)="navigate($event, 'con')"><i class="fa fa-phone"></i><a href="#con"><span>CONTACT</span></a></div>
+    <div class="mobile-nav" data-section="mail-to" (click)="navigate($event, 'mail-to')"><i class="fa fa-envelope-o"></i><a href="#mail-to"><span>MAIL TO</span></a></div>
+  </div>
+</div>

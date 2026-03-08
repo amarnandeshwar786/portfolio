@@ -1,0 +1,35 @@
+<app-loader *ngIf="!isLoaded"></app-loader>
+<div class="page-progress"><span></span></div>
+
+<div class="container-fluid" id="container" [class.hidden]="!isLoaded">
+  <div class="row">
+    <app-sidebar></app-sidebar>
+
+    <div class="content-scroller col-lg-10">
+      <app-mobile-navigation></app-mobile-navigation>
+
+      <div class="content-wrapper">
+        <app-home></app-home>
+        <app-about></app-about>
+        <app-experience></app-experience>
+        <app-projects></app-projects>
+        <app-skills></app-skills>
+        <app-education></app-education>
+        <app-contact></app-contact>
+        <app-mail-to></app-mail-to>
+        <app-full-image></app-full-image>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a
+  class="resume-download-btn"
+  href="assets/pdf/amar-nandeshwar-2025.pdf"
+  download="amar-nandeshwar-2025.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i class="fa fa-download" aria-hidden="true"></i>
+  <span>Download Resume</span>
+</a>

@@ -1,0 +1,46 @@
+<div class="content skill-bg" id="skills">
+  <h1 class="heading"><span>Skills</span></h1>
+  <p class="skill-section-subtitle">Technology stack and proficiency overview</p>
+  <div class="clear"></div>
+
+  <div class="skill-grid">
+    <div class="skill-col" *ngFor="let skill of skills">
+      <div class="box">
+        <div class="skill-card-glow" aria-hidden="true"></div>
+        <h3 class="skill-title"><span>{{ skill.title }}</span></h3>
+        <p class="skill-subtitle">{{ skill.subtitle }}</p>
+        <div class="skill-content">
+          <div class="prog-lang">
+            <div class="percent-circle">
+              <svg class="percent-svg" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="percent-track" cx="60" cy="60" [attr.r]="radius"></circle>
+                <circle
+                  class="percent-value"
+                  cx="60"
+                  cy="60"
+                  [attr.r]="radius"
+                  [attr.stroke-dasharray]="circumference"
+                  [attr.stroke-dashoffset]="getStrokeOffset(skill.percent)"
+                ></circle>
+              </svg>
+              <span>{{ skill.percent }}%</span>
+            </div>
+          </div>
+          <div class="skill-list-col">
+            <ul class="skill-list">
+              <li *ngFor="let item of skill.items; let i = index">
+                <div class="skill-item-head">
+                  <span>{{ item }}</span>
+                  <small>{{ getItemPercent(skill.percent, i, skill.items.length) }}%</small>
+                </div>
+                <div class="skill-item-meter">
+                  <span [style.width.%]="hasAnimated ? getItemPercent(skill.percent, i, skill.items.length) : 0"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

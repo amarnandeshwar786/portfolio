@@ -1,0 +1,45 @@
+<div class="content proj-bg" id="projects">
+  <h1 class="heading"><span>Projects</span></h1>
+  <div class="page-divider" style="margin-top: 20px !important"></div>
+
+  <div class="proj-slider-shell">
+    <div class="proj-slider-window">
+      <div class="proj-slider-track" [style.transform]="'translateX(-' + activeIndex * 100 + '%)'">
+        <div class="proj-slide-card" *ngFor="let project of projects">
+          <div class="proj-info">
+            <p class="proj-name">{{ project.name }}</p>
+            <p class="proj-subtitle">{{ project.subtitle }}</p>
+            <p class="proj-role"><strong>Role:</strong> {{ project.role }}</p>
+            <p class="proj-description">{{ project.description }}</p>
+
+            <p class="proj-label">Key Highlights</p>
+            <ul class="proj-list">
+              <li *ngFor="let item of project.highlights">{{ item }}</li>
+            </ul>
+
+            <p class="proj-label">Responsibilities</p>
+            <ul class="proj-list">
+              <li *ngFor="let item of project.responsibilities">{{ item }}</li>
+            </ul>
+
+            <p class="proj-tech">
+              <strong>Technologies:</strong>
+              <span>{{ project.technologies.join(', ') }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-slider-dots">
+    <button
+      type="button"
+      class="proj-dot"
+      *ngFor="let project of projects; let i = index"
+      [class.active]="i === activeIndex"
+      (click)="goToProject(i)"
+      [attr.aria-label]="'Go to ' + project.name"
+    ></button>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --page-progress: 0%;
+}
+
+.page-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.page-progress span {
+  display: block;
+  height: 100%;
+  width: var(--page-progress);
+  background: linear-gradient(90deg, var(--accent, #2dd4bf), var(--accent-2, #e8bf72));
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.45);
+  transition: width 0.12s linear;
+}
+
+#pc-menu a.active {
+  border-bottom-color: var(--accent) !important;
+}
+
+#pc-menu a.active span {
+  color: var(--accent) !important;
+}
+
+.mobile-nav.active .fa {
+  color: var(--accent) !important;
+}
+
+.content.section-reveal {
+  opacity: 0.45;
+  transform: translateY(18px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.content.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resume-download-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--accent-2, #e8bf72);
+  background: rgba(15, 39, 66, 0.9);
+  color: #f0f4ff;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  border-radius: 6px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(25, 65, 103, 0.95);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.resume-download-btn:visited {
+  color: #f0f4ff;
+}
+
+@media (max-width: 920px) {
+  .resume-download-btn {
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+}
