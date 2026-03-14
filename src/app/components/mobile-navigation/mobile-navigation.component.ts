@@ -1,18 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { I18nService } from '../../i18n/i18n.service';
+import { LangCode } from '../../i18n/translations';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-mobile-navigation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './mobile-navigation.component.html',
   styleUrl: './mobile-navigation.component.css'
 })
 export class MobileNavigationComponent {
   isOpen = false;
 
+  constructor(public i18n: I18nService) {}
+
   toggleMenu(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  setLang(code: LangCode): void {
+    this.i18n.setLang(code);
   }
 
   navigate(event: Event, sectionId: string): void {
@@ -51,3 +60,4 @@ export class MobileNavigationComponent {
     setTimeout(() => target.classList.remove('win-popup'), 450);
   }
 }
+

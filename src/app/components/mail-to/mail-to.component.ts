@@ -4,15 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { I18nService } from '../../i18n/i18n.service';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-mail-to',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './mail-to.component.html'
 })
 export class MailToComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private i18n: I18nService) {}
 
   formModel = {
     name: '',
@@ -26,16 +28,16 @@ export class MailToComponent {
 
   async onSubmit(form: NgForm): Promise<void> {
     if (form.invalid) {
-      this.statusMessage = 'Please complete all fields.';
+      this.statusMessage = this.i18n.t('mail.status.required');
       return;
     }
     this.isSubmitting = true;
-    this.statusMessage = 'Sending...';
+    this.statusMessage = this.i18n.t('mail.sending');
 
     try {
       if (!environment.enableContactApi) {
         this.openMailClientFallback();
-        this.statusMessage = 'Opened your mail app.';
+        this.statusMessage = this.i18n.t('mail.status.opened');
         return;
       }
 
@@ -44,7 +46,7 @@ export class MailToComponent {
       );
       if (!config?.resendConfigured) {
         this.openMailClientFallback();
-        this.statusMessage = 'Opened your mail app.';
+        this.statusMessage = this.i18n.t('mail.status.opened');
         return;
       }
 
@@ -56,18 +58,19 @@ export class MailToComponent {
           hp: this.formModel.hp
         })
       );
-      this.statusMessage = 'Message sent successfully.';
+      this.statusMessage = this.i18n.t('mail.status.sent');
       form.resetForm();
     } catch (_err) {
       this.openMailClientFallback();
-      this.statusMessage = 'Opened your mail app.';
+      this.statusMessage = this.i18n.t('mail.status.opened');
     } finally {
       this.isSubmitting = false;
     }
   }
 
   private openMailClientFallback(): void {
-    const subject = encodeURIComponent(`Say Hello from ${this.formModel.name}`);
+    const safeName = this.formModel.name.trim() || this.i18n.t('mail.nameFallback');
+    const subject = encodeURIComponent(this.i18n.t('mail.subject', { name: safeName }));
     const body = encodeURIComponent(
       `Name: ${this.formModel.name}\nEmail: ${this.formModel.email}\n\nComment:\n${this.formModel.comment}`
     );

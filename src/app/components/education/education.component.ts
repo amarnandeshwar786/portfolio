@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 interface EducationItem {
   icon: string;
   college: string;
-  course: string;
+  courseKey: string;
   year: string;
-  focus: string;
+  focusKey: string;
 }
 
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './education.component.html'
 })
 export class EducationComponent {
@@ -20,23 +21,23 @@ export class EducationComponent {
     {
       icon: 'fa-laptop',
       college: 'Government Polytechnic, Bramhapuri',
-      course: 'Diploma in Information Technology',
+      courseKey: 'education.items.item1.course',
       year: '2012 - 2015',
-      focus: 'Core software development, database fundamentals, and practical engineering projects.'
+      focusKey: 'education.items.item1.focus'
     },
     {
       icon: 'fa-briefcase',
       college: 'S. D. Junior College, Barwha',
-      course: 'Higher Secondary Certificate (HSC)',
+      courseKey: 'education.items.item2.course',
       year: '2011 - 2012',
-      focus: 'Built a strong foundation in mathematics, science, and analytical problem solving.'
+      focusKey: 'education.items.item2.focus'
     },
     {
       icon: 'fa-book',
       college: 'Z. P. High School, Barwha',
-      course: 'Secondary School Certificate (SSC)',
+      courseKey: 'education.items.item3.course',
       year: '2009 - 2010',
-      focus: 'Established fundamentals in academics and disciplined learning approach.'
+      focusKey: 'education.items.item3.focus'
     }
   ];
 }

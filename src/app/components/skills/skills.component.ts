@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy } from '@angular/core';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 interface SkillCard {
-  title: string;
-  subtitle: string;
+  titleKey: string;
+  subtitleKey: string;
   percent: number;
   items: string[];
 }
@@ -11,7 +12,7 @@ interface SkillCard {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.css'
 })
@@ -24,28 +25,48 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
 
   skills: SkillCard[] = [
     {
-      title: 'Programming Languages',
-      subtitle: 'Core development fundamentals',
+      titleKey: 'skills.cards.programming.title',
+      subtitleKey: 'skills.cards.programming.subtitle',
       percent: 83,
-      items: ['C Programming', 'C++', 'Core Java', 'C#/.NET']
+      items: [
+        'skills.cards.programming.items.c',
+        'skills.cards.programming.items.cpp',
+        'skills.cards.programming.items.java',
+        'skills.cards.programming.items.dotnet'
+      ]
     },
     {
-      title: 'Server & Client Development',
-      subtitle: 'Application logic and web architecture',
+      titleKey: 'skills.cards.serverClient.title',
+      subtitleKey: 'skills.cards.serverClient.subtitle',
       percent: 70,
-      items: ['JavaScript', 'jQuery', 'ASP.NET', 'MVC', 'Angular v2+']
+      items: [
+        'skills.cards.serverClient.items.js',
+        'skills.cards.serverClient.items.jquery',
+        'skills.cards.serverClient.items.aspnet',
+        'skills.cards.serverClient.items.mvc',
+        'skills.cards.serverClient.items.angular'
+      ]
     },
     {
-      title: 'Frontend Technologies',
-      subtitle: 'UI structure and styling',
+      titleKey: 'skills.cards.frontend.title',
+      subtitleKey: 'skills.cards.frontend.subtitle',
       percent: 65,
-      items: ['HTML5', 'CSS3', 'Bootstrap 3+', 'Responsive UI']
+      items: [
+        'skills.cards.frontend.items.html',
+        'skills.cards.frontend.items.css',
+        'skills.cards.frontend.items.bootstrap',
+        'skills.cards.frontend.items.responsive'
+      ]
     },
     {
-      title: 'Database Technologies',
-      subtitle: 'Storage, query, and optimization',
+      titleKey: 'skills.cards.database.title',
+      subtitleKey: 'skills.cards.database.subtitle',
       percent: 60,
-      items: ['SQL Server', 'Oracle', 'SQLite']
+      items: [
+        'skills.cards.database.items.sqlserver',
+        'skills.cards.database.items.oracle',
+        'skills.cards.database.items.sqlite'
+      ]
     }
   ];
 

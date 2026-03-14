@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { I18nService } from '../../i18n/i18n.service';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 interface ProjectItem {
-  name: string;
-  subtitle: string;
-  role: string;
-  description: string;
+  nameKey: string;
+  subtitleKey: string;
+  roleKey: string;
+  descriptionKey: string;
   highlights: string[];
   responsibilities: string[];
   technologies: string[];
@@ -14,65 +16,64 @@ interface ProjectItem {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
   activeIndex = 0;
 
+  constructor(private i18n: I18nService) {}
+
   projects: ProjectItem[] = [
     {
-      name: 'M-12 Planner',
-      subtitle: 'Business Planning and Forecasting Platform',
-      role: 'Backend Developer',
-      description:
-        'Built a full-stack planning platform that helps organizations forecast financial performance using historical data and predictive models.',
+      nameKey: 'projects.items.m12.name',
+      subtitleKey: 'projects.items.m12.subtitle',
+      roleKey: 'projects.items.m12.role',
+      descriptionKey: 'projects.items.m12.description',
       highlights: [
-        'Enabled what-if simulation of business scenarios for better strategic planning.',
-        'Helped identify potential profit leakage and optimization opportunities.',
-        'Provided clear trend and revenue forecasting insights for decision-making.'
+        'projects.items.m12.highlights.h1',
+        'projects.items.m12.highlights.h2',
+        'projects.items.m12.highlights.h3'
       ],
       responsibilities: [
-        'Developed and maintained backend services in Node.js and integrated them with React-based frontend modules.',
-        'Designed high-performance REST APIs and SQL Server stored procedures for complex planning calculations.',
-        'Contributed across the full lifecycle: design, implementation, testing, and deployment.'
+        'projects.items.m12.responsibilities.r1',
+        'projects.items.m12.responsibilities.r2',
+        'projects.items.m12.responsibilities.r3'
       ],
       technologies: ['Node.js', 'React', 'MS SQL Server']
     },
     {
-      name: 'Department of Finance (DOF) Portal',
-      subtitle: 'UAE Departmental Portal',
-      role: 'Senior Software Developer',
-      description:
-        'Developed a comprehensive portal for the UAE Department of Finance to streamline internal operations and improve employee engagement.',
+      nameKey: 'projects.items.dof.name',
+      subtitleKey: 'projects.items.dof.subtitle',
+      roleKey: 'projects.items.dof.role',
+      descriptionKey: 'projects.items.dof.description',
       highlights: [
-        'Supported key modules such as performance management, training management, internal communication, and surveys.',
-        'Enabled secure document management and collaboration through SharePoint integration.',
-        'Improved usability for day-to-day departmental workflows, including menu and announcement management.'
+        'projects.items.dof.highlights.h1',
+        'projects.items.dof.highlights.h2',
+        'projects.items.dof.highlights.h3'
       ],
       responsibilities: [
-        'Implemented backend functionality using ASP.NET Core Web API.',
-        'Designed REST APIs for modules such as employee performance tracking and training management.',
-        'Built SQL Server queries and stored procedures to support critical backend operations.'
+        'projects.items.dof.responsibilities.r1',
+        'projects.items.dof.responsibilities.r2',
+        'projects.items.dof.responsibilities.r3'
       ],
       technologies: ['Angular', 'ASP.NET Core Web API', 'MS SQL Server', 'SharePoint']
     },
     {
-      name: 'Teacher Quality Improvement Program (TeaQIP)',
-      subtitle: 'Student Feedback and Teaching Quality System',
-      role: 'Team Lead',
-      description:
-        'Led development of a student feedback platform focused on improving teaching quality through data-driven and action-oriented insights.',
+      nameKey: 'projects.items.teaqip.name',
+      subtitleKey: 'projects.items.teaqip.subtitle',
+      roleKey: 'projects.items.teaqip.role',
+      descriptionKey: 'projects.items.teaqip.description',
       highlights: [
-        'Enabled structured student feedback collection and analysis to support continuous teaching improvement.',
-        'Aligned academic quality outcomes with societal, industry, and business expectations.',
-        'Promoted a learner-centered model for stronger engagement and instructional impact.'
+        'projects.items.teaqip.highlights.h1',
+        'projects.items.teaqip.highlights.h2',
+        'projects.items.teaqip.highlights.h3'
       ],
       responsibilities: [
-        'Handled team onboarding, mentoring, task planning, and performance feedback.',
-        'Defined project scope, timelines, deliverables, and workload distribution.',
-        'Monitored execution, mitigated risks, resolved conflicts, and maintained communication transparency.',
-        'Reviewed deliverables regularly to ensure quality and timely completion.'
+        'projects.items.teaqip.responsibilities.r1',
+        'projects.items.teaqip.responsibilities.r2',
+        'projects.items.teaqip.responsibilities.r3',
+        'projects.items.teaqip.responsibilities.r4'
       ],
       technologies: ['Angular', 'ASP.NET Core Web API', 'MS SQL Server']
     }
@@ -80,5 +81,9 @@ export class ProjectsComponent {
 
   goToProject(index: number): void {
     this.activeIndex = index;
+  }
+
+  getProjectName(project: ProjectItem): string {
+    return this.i18n.t(project.nameKey);
   }
 }

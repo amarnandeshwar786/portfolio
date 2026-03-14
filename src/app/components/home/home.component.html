@@ -39,9 +39,7 @@
       </i>
     </div>
     <span class="title">
-      Windows <span class="long">Application</span><span class="sort">Appl<sup>n</sup></span> / Web
-      <span class="long">Application</span><span class="sort">Appl<sup>n</sup></span> / Mobile
-      <span class="long">Application</span><span class="sort">Appl<sup>n</sup></span>
+      {{ 'home.title.windows' | t }} / {{ 'home.title.web' | t }} / {{ 'home.title.mobile' | t }}
     </span>
   </div>
 
@@ -49,7 +47,7 @@
     <div id="imgCarousel" class="carousel slide" data-interval="15000" data-ride="carousel">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="images/slider/Slider1.jpg" class="img-responsive" alt="Slider image" />
+          <img src="images/slider/Slider1.jpg" class="img-responsive" [attr.alt]="'common.sliderAlt' | t" />
         </div>
       </div>
     </div>

@@ -1,46 +1,43 @@
 <div class="content about-bg" id="about">
-  <h1 class="heading"><span>About</span></h1>
+  <h1 class="heading"><span>{{ 'about.heading' | t }}</span></h1>
   <div class="about-layout">
     <div class="about-card about-identity">
       <img src="assets/img/amar-linkedin.jpeg" alt="Amar Nandeshwar" class="about-avatar" />
       <h3>Amar Khushal Nandeshwar</h3>
-      <p class="about-role">Full Stack Developer</p>
-      <p class="about-meta">Barwha, Maharashtra, India</p>
+      <p class="about-role">{{ 'about.role' | t }}</p>
+      <p class="about-meta">{{ 'about.location' | t }}</p>
       <div class="about-tags">
-        <span *ngFor="let item of highlights">{{ item }}</span>
+        <span *ngFor="let item of highlights">{{ item | t }}</span>
       </div>
     </div>
 
     <div class="about-card about-details">
       <div class="about-facts">
         <div class="fact">
-          <label>Email</label>
+          <label>{{ 'about.facts.email' | t }}</label>
           <span>amarnandeshwar786@gmail.com</span>
         </div>
         <div class="fact">
-          <label>Phone</label>
+          <label>{{ 'about.facts.phone' | t }}</label>
           <span>+91 8888445653</span>
         </div>
         <div class="fact">
-          <label>Date of Birth</label>
+          <label>{{ 'about.facts.dob' | t }}</label>
           <span>30 October 1994</span>
         </div>
         <div class="fact">
-          <label>Nationality</label>
+          <label>{{ 'about.facts.nationality' | t }}</label>
           <span>Indian</span>
         </div>
       </div>
 
       <div class="about-summary">
-        <h3>Professional Summary</h3>
+        <h3>{{ 'about.summary.heading' | t }}</h3>
         <p>
-          Full-stack developer with strong experience in building business-critical web platforms and enterprise
-          portals. Focused on writing maintainable code, improving performance, and delivering reliable solutions
-          aligned with real user and client needs.
+          {{ 'about.summary.p1' | t }}
         </p>
         <p>
-          Comfortable across backend APIs, data modeling, and modern frontend development, with proven ownership from
-          design through deployment.
+          {{ 'about.summary.p2' | t }}
         </p>
       </div>
     </div>

@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 interface ExperienceItem {
   icon: string;
   company: string;
   period: string;
   location: string;
-  role: string;
+  roleKey: string;
   highlights: string[];
 }
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './experience.component.html'
 })
 export class ExperienceComponent {
@@ -23,44 +24,32 @@ export class ExperienceComponent {
       company: 'NO Brain IT Solutions Pvt. Ltd.',
       period: 'July 2021 - April 2025',
       location: 'Pune',
-      role: 'Module Lead',
-      highlights: [
-        'Delivered a project one week ahead of schedule, enabling smooth deployment and exceeding client expectations.',
-        'Optimized system architecture, improving application performance by 20% and reducing response time by 30%.'
-      ]
+      roleKey: 'experience.items.item1.role',
+      highlights: ['experience.items.item1.highlights.h1', 'experience.items.item1.highlights.h2']
     },
     {
       icon: 'fa-code',
       company: 'NO Brain IT Solutions Pvt. Ltd.',
       period: 'July 2021 - April 2025',
       location: 'Pune',
-      role: '.NET Full Stack Developer',
-      highlights: [
-        'Optimized database query systems, improving backend performance by 25% and significantly enhancing API response time.',
-        'Designed and developed a fully dynamic, multi-tenant clinical trial platform and delivered it successfully to the client.'
-      ]
+      roleKey: 'experience.items.item2.role',
+      highlights: ['experience.items.item2.highlights.h1', 'experience.items.item2.highlights.h2']
     },
     {
       icon: 'fa-mobile',
       company: 'Webphoros',
       period: 'May 2020 - March 2021',
       location: 'Bramhapuri',
-      role: 'Senior Software Engineer',
-      highlights: [
-        'Learned new frameworks and delivered a mobile application within tight timelines, demonstrating adaptability and strong execution.',
-        'Built a food donation app during the COVID-19 period to help users locate donation camps, and received client appreciation for its social impact.'
-      ]
+      roleKey: 'experience.items.item3.role',
+      highlights: ['experience.items.item3.highlights.h1', 'experience.items.item3.highlights.h2']
     },
     {
       icon: 'fa-hospital-o',
       company: 'Vandan Medical Foundation',
       period: 'February 2018 - December 2018',
       location: 'Nagpur',
-      role: 'Senior Software Engineer',
-      highlights: [
-        'Transformed a multi-page application into a streamlined single-page application (SPA), improving user experience and navigation flow.',
-        'Revamped registration and barcode scanning workflows, increasing user registrations by 60% through a faster and more user-friendly portal.'
-      ]
+      roleKey: 'experience.items.item4.role',
+      highlights: ['experience.items.item4.highlights.h1', 'experience.items.item4.highlights.h2']
     }
   ];
 }

@@ -1,3 +1,16 @@
+<div class="lang-topbar">
+  <div class="lang-dropdown">
+    <button type="button" class="lang-trigger" (click)="toggleLangMenu()">
+      Language
+    </button>
+    <div class="lang-menu" *ngIf="isLangMenuOpen">
+      <button type="button" class="lang-option" *ngFor="let lang of i18n.langOptions" (click)="setLang(lang.code)">
+        <span class="lang-option-label">{{ lang.label }}</span>
+        <span class="lang-option-code">{{ lang.short }}</span>
+      </button>
+    </div>
+  </div>
+</div>
 <app-loader *ngIf="!isLoaded"></app-loader>
 <div class="page-progress"><span></span></div>
 
@@ -31,5 +44,8 @@
   rel="noopener noreferrer"
 >
   <i class="fa fa-download" aria-hidden="true"></i>
-  <span>Download Resume</span>
+  <span>{{ 'common.downloadResume' | t }}</span>
 </a>
+
+
+

@@ -1,14 +1,14 @@
 <div class="content skill-bg" id="skills">
-  <h1 class="heading"><span>Skills</span></h1>
-  <p class="skill-section-subtitle">Technology stack and proficiency overview</p>
+  <h1 class="heading"><span>{{ 'skills.heading' | t }}</span></h1>
+  <p class="skill-section-subtitle">{{ 'skills.subtitle' | t }}</p>
   <div class="clear"></div>
 
   <div class="skill-grid">
     <div class="skill-col" *ngFor="let skill of skills">
       <div class="box">
         <div class="skill-card-glow" aria-hidden="true"></div>
-        <h3 class="skill-title"><span>{{ skill.title }}</span></h3>
-        <p class="skill-subtitle">{{ skill.subtitle }}</p>
+        <h3 class="skill-title"><span>{{ skill.titleKey | t }}</span></h3>
+        <p class="skill-subtitle">{{ skill.subtitleKey | t }}</p>
         <div class="skill-content">
           <div class="prog-lang">
             <div class="percent-circle">
@@ -30,7 +30,7 @@
             <ul class="skill-list">
               <li *ngFor="let item of skill.items; let i = index">
                 <div class="skill-item-head">
-                  <span>{{ item }}</span>
+                  <span>{{ item | t }}</span>
                   <small>{{ getItemPercent(skill.percent, i, skill.items.length) }}%</small>
                 </div>
                 <div class="skill-item-meter">

@@ -1,6 +1,6 @@
 <div class="intro content edu-bg" id="edu">
-  <h1 class="heading"><span>Education</span></h1>
-  <p class="edu-subtitle">Academic timeline and learning foundation</p>
+  <h1 class="heading"><span>{{ 'education.heading' | t }}</span></h1>
+  <p class="edu-subtitle">{{ 'education.subtitle' | t }}</p>
   <div class="page-divider edu-divider"></div>
 
   <div class="edu-timeline">
@@ -13,9 +13,9 @@
 
       <div class="edu-card-body">
         <p class="edu-year-pill">{{ education.year }}</p>
-        <h3 class="edu-course">{{ education.course }}</h3>
+        <h3 class="edu-course">{{ education.courseKey | t }}</h3>
         <p class="edu-college">{{ education.college }}</p>
-        <p class="edu-focus">{{ education.focus }}</p>
+        <p class="edu-focus">{{ education.focusKey | t }}</p>
         <div class="edu-card-glow" aria-hidden="true"></div>
       </div>
     </div>

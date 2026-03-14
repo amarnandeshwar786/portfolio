@@ -1,6 +1,6 @@
 <div class="content exp-bg" id="exp">
-  <h1 class="heading"><span>Experience</span></h1>
-  <p class="edu-subtitle">Professional timeline and key delivery impact</p>
+  <h1 class="heading"><span>{{ 'experience.heading' | t }}</span></h1>
+  <p class="edu-subtitle">{{ 'experience.subtitle' | t }}</p>
   <div class="page-divider edu-divider"></div>
 
   <div class="edu-timeline">
@@ -14,9 +14,9 @@
       <div class="edu-card-body">
         <p class="edu-year-pill">{{ experience.period }} | {{ experience.location }}</p>
         <h3 class="edu-course">{{ experience.company }}</h3>
-        <p class="edu-college">{{ experience.role }}</p>
+        <p class="edu-college">{{ experience.roleKey | t }}</p>
         <ul class="exp-points exp-points-timeline">
-          <li *ngFor="let point of experience.highlights">{{ point }}</li>
+          <li *ngFor="let point of experience.highlights">{{ point | t }}</li>
         </ul>
         <div class="edu-card-glow" aria-hidden="true"></div>
       </div>

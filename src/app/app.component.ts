@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { I18nService } from './i18n/i18n.service';
+import { LangCode } from './i18n/translations';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { TranslatePipe } from './i18n/translate.pipe';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { EducationComponent } from './components/education/education.component';
@@ -18,6 +21,7 @@ import { SkillsComponent } from './components/skills/skills.component';
   standalone: true,
   imports: [
     CommonModule,
+    TranslatePipe,
     LoaderComponent,
     SidebarComponent,
     MobileNavigationComponent,
@@ -31,15 +35,44 @@ import { SkillsComponent } from './components/skills/skills.component';
     MailToComponent,
     FullImageComponent
   ],
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
   isLoaded = false;
+  isLangMenuOpen = false;
   private sectionObserver?: IntersectionObserver;
   private scroller?: HTMLElement;
   private readonly scrollerHandler = () => this.updateScrollProgress();
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, public i18n: I18nService) {}
+
+  setLang(code: string): void {
+    if (this.isLangCode(code)) {
+      this.i18n.setLang(code);
+      this.isLangMenuOpen = false;
+    }
+  }
+
+  toggleLangMenu(): void {
+    this.isLangMenuOpen = !this.isLangMenuOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleDocumentClick(event: Event): void {
+    if (!this.isLangMenuOpen) {
+      return;
+    }
+    const target = event.target as HTMLElement | null;
+    if (target && target.closest('.lang-dropdown')) {
+      return;
+    }
+    this.isLangMenuOpen = false;
+  }
+
+  private isLangCode(code: string): code is LangCode {
+    return this.i18n.langOptions.some((lang) => lang.code === code);
+  }
 
   ngOnInit(): void {
     document.body.classList.remove('theme-vertical', 'theme-cards', 'theme-topbar', 'theme-rightbar');
@@ -177,3 +210,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.scroller?.removeEventListener('scroll', this.scrollerHandler);
   }
 }
+
+

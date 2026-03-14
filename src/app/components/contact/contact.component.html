@@ -1,17 +1,17 @@
 <div class="intro content con-bg" id="con">
-  <h1 class="heading"><span>Contact</span></h1>
-  <p class="contact-subtitle">Let's connect for opportunities and collaborations</p>
+  <h1 class="heading"><span>{{ 'contact.heading' | t }}</span></h1>
+  <p class="contact-subtitle">{{ 'contact.subtitle' | t }}</p>
   <div class="page-divider contact-divider"></div>
 
   <div class="contact-layout">
     <div class="contact-panel contact-item">
       <div class="contact-item-icon"><i class="fa fa-map-marker"></i></div>
       <div class="contact-item-body">
-        <h4>Address</h4>
+        <h4>{{ 'contact.labels.address' | t }}</h4>
         <p class="contact-name">Amar Nandeshwar</p>
         <p>196, Ward No. 3, Near Hanuman Temple Area</p>
         <p>Barwha, Pin-441805, Maharashtra, India</p>
-        <p class="contact-coordinates">Coordinates: 20.8527382, 79.8599591</p>
+        <p class="contact-coordinates">{{ 'contact.labels.coordinates' | t }}: 20.8527382, 79.8599591</p>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
       <div class="contact-mini-row">
         <div class="contact-item-icon contact-mini-icon"><i class="fa fa-phone"></i></div>
         <div class="contact-item-body">
-          <h4>Phone</h4>
+          <h4>{{ 'contact.labels.phone' | t }}</h4>
           <a href="tel:+918888445653">+91-8888445653</a>
           <a href="tel:+917775937087">+91-7775937087</a>
         </div>
@@ -28,7 +28,7 @@
       <div class="contact-mini-row">
         <div class="contact-item-icon contact-mini-icon"><i class="fa fa-envelope-o"></i></div>
         <div class="contact-item-body">
-          <h4>Email</h4>
+          <h4>{{ 'contact.labels.email' | t }}</h4>
           <a href="mailto:amarnandeshwar786@gmail.com">amarnandeshwar786@gmail.com</a>
           <a href="mailto:aknandeshwar786@gmail.com">aknandeshwar786@gmail.com</a>
         </div>
@@ -37,11 +37,11 @@
   </div>
 
   <div class="contact-panel contact-map-panel">
-    <h3 class="contact-panel-title">Home Location</h3>
+    <h3 class="contact-panel-title">{{ 'contact.labels.homeLocation' | t }}</h3>
     <div id="mapping">
       <iframe
         class="map-frame"
-        title="Barwha Coordinates Map"
+        [attr.title]="'contact.mapTitle' | t"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         src="https://maps.google.com/maps?q=20.8527382,79.8599591&t=k&z=20&output=embed">
@@ -50,7 +50,7 @@
   </div>
 
   <div class="social-link">
-    <h4>I'M ALSO ON SOCIAL NETWORK</h4>
+    <h4>{{ 'contact.labels.social' | t }}</h4>
     <div class="social-icon">
       <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook-official"></i></a>
       <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube-square"></i></a>
