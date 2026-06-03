@@ -2,17 +2,6 @@
   <div class="circle hidden-lg hidden-md" (click)="toggleMenu()"><i>{{ 'common.menu' | t }}</i></div>
   <div class="mobile-menu" *ngIf="isOpen" style="display: block">
     <div class="mobile-menu-gesture"></div>
-    <div class="lang-switch">
-      <button
-        type="button"
-        class="lang-btn"
-        *ngFor="let lang of i18n.langOptions"
-        (click)="setLang(lang.code)"
-        [class.active]="lang.code === i18n.currentLang"
-      >
-        {{ lang.short }}
-      </button>
-    </div>
     <div class="mobile-nav" data-section="home" (click)="navigate($event, 'home')"><i class="fa fa-home"></i><a href="#home"><span>{{ 'nav.home' | t }}</span></a></div>
     <div class="mobile-nav" data-section="about" (click)="navigate($event, 'about')"><i class="fa fa-address-card"></i><a href="#about"><span>{{ 'nav.about' | t }}</span></a></div>
     <div class="mobile-nav" data-section="exp" (click)="navigate($event, 'exp')"><i class="fa fa-briefcase"></i><a href="#exp"><span>{{ 'nav.experience' | t }}</span></a></div>
